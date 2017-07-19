@@ -49,7 +49,7 @@ describe('App: PROJECTNAME', () => {
   it('should render title in a h1 tag', async(() => {
 
 
-    fixture.detectChanges();        // update view with quote
+    fixture.detectChanges();        //  view with quote
 
     let compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('app works!');
