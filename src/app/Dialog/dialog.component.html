@@ -1,0 +1,24 @@
+<h1 md-dialog-title>{{title}}</h1>
+<div md-dialog-content>
+ 
+   <div *ngFor="let content_var of content?.split('\\n')">
+      <div [innerHTML]="content_var | safeHtml"></div>
+  </div> 
+   <br/>
+    <div *ngIf="error">
+    <div *ngFor="let error_var of error?.split('\\n')">
+       <div [innerHTML]="error_var | safeHtml"></div>
+    </div> 
+    <br/>
+    </div>
+    <div *ngIf="moreInfo">
+      <div *ngFor="let moreInfo_var of moreInfo?.split('\\n')">  
+        <div [innerHTML]="moreInfo_var | safeHtml"></div>
+      </div> 
+      <br/>
+    </div>
+</div>
+
+<div md-dialog-actions>
+  <button md-raised-button color="primary" (click)="dialogRef.close()">Close</button>
+</div>  

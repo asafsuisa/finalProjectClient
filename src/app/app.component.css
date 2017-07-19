@@ -1,0 +1,180 @@
+md-sidenav-container.m2app-dark {
+  background: black;
+}
+
+.md-grid-list{
+  height: 100%;
+}
+
+.md-grid-tile{
+  padding: 20px;
+}
+
+.text-inside-grid {
+  padding-right: 5%;
+  padding-bottom: 5%;
+ 
+}
+
+html {
+  height: 100%;
+}
+.text-inside-grid1 {
+  position: absolute;
+  display: inline-block;
+  vertical-align: top; /* here */
+  left: 5px;
+}
+
+.example-card {
+  width: 400px;
+  overflow: auto;
+}
+
+md-card {
+    margin: 20px;
+}
+
+.app-sidenav {
+  padding: 10px;
+  min-width: 100px;
+}
+
+.app-content md-checkbox {
+  margin: 10px;
+}
+
+.app-toolbar-filler {
+  flex: 1 1 auto;
+}
+
+.app-toolbar-menu {
+  padding: 0 14px 0 14px;
+  color: white;
+}
+
+.app-icon-button {
+  box-shadow: none;
+  user-select: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  filter: none;
+  font-weight: normal;
+  height: auto;
+  line-height: inherit;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+}
+
+.app-action {
+  display: inline-block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.app-spinner {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+}
+
+.app-input-icon {
+  font-size: 16px;
+}
+
+.app-list {
+  border: 1px solid rgba(0,0,0,0.12);
+  width: 350px;
+  margin: 20px;
+}
+
+.app-progress {
+  margin: 20px;
+}
+
+
+.chatbot-div{
+  background: #424242;
+  min-height: 95%;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 4px;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  flex: 100;
+
+}
+
+.chatbot-footer
+{
+  margin: 20px;
+  display: inline-block;
+  background: rgba(0,0,0,0);
+}
+.introClass
+{
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: block;
+  margin: 0px;
+  height: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+}
+
+.chatbotBody
+{
+  overflow-y: auto;
+  margin-top: 10px;
+  max-height: 350px;
+  
+}
+.buttonForIntroClass
+{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+
+}
+
+md-list.hintsListElement md-list-item .md-list-item
+{
+  padding-left: 0px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+}
+.md-checkbox-layout .md-checkbox-label
+{
+  font-weight: normal;
+}
+.chatbotButton
+{
+  margin-right: 7%;
+}
+
+.chatbot-footer h2
+{
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+}
+
+.selected {
+     /* background-color: #CFD8DC;*/
+       border-radius: 6px;
+       border-style: solid;
+       border-color: black;
+
+       
+    }
+
+.hint-list
+    {
+      padding-left: 0px;
+      padding-bottom:10px;
+      margin-top:10px;
+    }

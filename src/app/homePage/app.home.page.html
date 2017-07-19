@@ -1,0 +1,134 @@
+
+<body class="index-page" style="overflow-y: scroll;">	
+
+<!-- Navbar will come here -->
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+	<div class="container">
+
+	</div>
+</nav>
+<!-- end navbar -->
+
+<div class="wrapper">
+	<div class="header header-filter" style="background-image: url('/assets/images/bg2.jpeg');">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="brand">
+						<h1>Monkey-Bot Academy</h1>
+						<h3>Learn to program using chatbot and improve your skills</h3>
+					</div>
+				</div>
+			</div>
+			<div class="logo-container" style="position: absolute;top:10px">
+	                <div class="logo">
+	                    <img src="/assets/images/monkey.png" data-placement="bottom" 
+						rel="tooltip"
+						data-html="true">
+	                </div>
+	                <div class="brand">
+	                   Powered by Code Monkey
+	                </div>
+
+
+			</div>
+		</div>
+	</div>
+
+	<div class="main main-raised">
+		<div class="section section-basic">
+	    	<div class="container">
+	            <div class="title">
+	                <h2>Our courses</h2>
+	            </div>
+
+							
+		<md-card class="card-accent md-card-main-page " *ngFor="let course of allCourses;let i =index">
+		<h4 style="text-align: center;margin-left: 5px">{{course.title}}<span [innerHTML]="course.logo"></span></h4>
+				<md-tab-group style="height: 180px; overflow-y: auto;">
+  				<md-tab label="General">{{course.general}}</md-tab>
+  				<md-tab label="Syllabus">
+					  <ul>
+						<li *ngFor="let item_line of course.syllabus.split(',')">{{item_line}} </li>
+					  </ul> 
+			  </md-tab>
+				</md-tab-group>
+			<md-card-actions style="margin-left: auto;">
+     <button #submitButton  md-raised-button (click)="enterCourse(course.currLang,course.courseApp,i)" color="primary">
+            Start here!
+          </button>
+		  	<br>
+			</md-card-actions>
+			</md-card>
+			
+		</div>
+	</div>
+		
+    <div class="section section-download">
+				<div class="row text-center" >
+					<h2>The Team</h2>
+						<br/>
+							<br/>
+				<div class="col-sm-2" style="margin-left: 4%;" >
+	                        <h4 style="text-align: center;">Gabi Giladov</h4>
+	                        <img src="/assets/images/gabi.jpg" alt="Raised Image" class="img-circle img-raised img-responsive">
+							<br/>
+							 <h4 style="text-align: center;">Front-end developer</h4>
+	            </div>
+					<div class="col-sm-2 col-sm-offset-1">
+	                         <h4 style="text-align: center;">Tomer Segal</h4>
+	                        <img src="/assets/images/tomer.jpg" alt="Raised Image" class="img-circle img-raised img-responsive">
+											<br/>
+							 <h4 style="text-align: center;">Back-end developer</h4>
+	            </div>
+					<div class="col-sm-2 col-sm-offset-1">
+	                        <h4 style="text-align: center;">Lior Negri</h4>
+	                        <img src="/assets/images/lior.jpg" alt="Raised Image" class="img-circle img-raised img-responsive">
+											<br/>
+							 <h4 style="text-align: center;">Back-end developer</h4>
+	            </div>
+					<div class="col-sm-2 col-sm-offset-1">
+	                        <h4 style="text-align: center;">Asaf Suisa</h4>
+	                        <img src="/assets/images/asaf.jpg" alt="Raised Image" class="img-circle img-raised img-responsive">
+											<br/>
+							 <h4 style="text-align: center;">Front-end developer</h4>
+	            </div>
+				  </div>
+				<br><br>
+
+			
+
+	            <div class="row sharing-area text-center">
+	                    <h3>Thank you for supporting us!</h3>
+	                    <a href="#" class="btn btn-twitter">
+	                        <i class="fa fa-twitter"></i>
+	                        Tweet
+	                    </a>
+	                    <a href="#" class="btn btn-facebook">
+	                        <i class="fa fa-facebook-square"></i>
+	                        Share
+	                    </a>
+						<a href="#" class="btn btn-google-plus">
+	                        <i class="fa fa-google-plus"></i>
+	                        Share
+	                    </a>
+						<a href="#" class="btn btn-github">
+	                        <i class="fa fa-github"></i>
+	                    	Star
+	                    </a>
+	            </div>
+	        </div>
+	   
+
+
+</div>
+    <footer class="footer">
+	    <div class="container">
+	        <div class="copyright pull-right">
+	            &copy; 2017, made by Ben-Gurion University and Code Monkey. 
+	        </div>
+	    </div>
+	</footer>
+
+</div>
+</body>

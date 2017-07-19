@@ -1,0 +1,40 @@
+
+<md-sidenav-container [class.m2app-dark]="isDarkTheme" fxFlexFill>
+  <md-sidenav #sidenav mode="push" class="app-sidenav md-sidenav-push md-side-nav-opened" >
+    <md-nav-list>
+      <md-list-item *ngFor="let link of links;let i = index" [class.selected]="i==selectedIndex">
+ 
+        <a md-link [routerLink]="['stage/'+ (i+1)]" (click)="moveStage(i)" 
+        style="display: flex;">
+          <div>
+          {{i+1}}.  
+        </div>&nbsp;
+           <div> 
+              <span> {{link}}</span>
+          </div>
+        </a>
+      </md-list-item>
+    </md-nav-list>
+  </md-sidenav>
+
+  <md-toolbar color="primary" style="position: fixed;z-index: 200;">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+
+   {{currCourse.currLang.toUpperCase()}}-BOT
+
+    <span class="app-toolbar-filler"></span>
+    <button md-button (click)="changeToDarkTheme()">TOGGLE DARK THEME</button>
+    <a md-icon-button routerLink="/home"  md-tooltip="home">
+      <md-icon>home</md-icon>
+    </a>
+  </md-toolbar>
+
+
+  <div class="app-content" style="overflow: hidden;" fxFlexFill>
+     <router-outlet (activate)='onActivate($event)' #stage>
+     </router-outlet>
+  </div>
+
+</md-sidenav-container>

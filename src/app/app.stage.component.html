@@ -1,0 +1,98 @@
+ <div fxLayout="row" fxFlexFill style="min-height: 100%;">
+      <div fxFlex="25" style="overflow-y:auto;margin-top:3%">
+        <md-card #introObj  class="introClass">
+          <div >
+            <h1>{{currStage.topic}}</h1>
+            <h3>Exercise {{currStage.id}}</h3>
+            <br/>
+            <h1>Instructions</h1>
+               <div id="instructions" *ngFor="let currStage_line of currStage.instructions?.split('\\n')">
+                          <div [innerHTML]="currStage_line | safeHtml"></div>
+              </div> 
+          </div>
+          <div >
+    
+          <h1>Tasks</h1>
+            <div [innerHTML]="currStage.generalTask"></div>
+            <md-list *ngFor="let item of currStage.tasks;let i=index" class="hintsListElement" style="display: flex;">
+              <div>
+                   {{i+1}}.  
+              </div>&nbsp;
+              <div>
+                <span> 
+                    <div *ngFor="let item_line of item?.split('\\n')">
+                          <div [innerHTML]="item_line| safeHtml"></div>
+                    </div> 
+                </span>
+              </div>
+            </md-list>
+          </div>
+          <br/>
+          <div>
+            <button  md-raised-button color="primary" (click)="collapseHints()">
+              <span>Hints</span>
+                <md-icon *ngIf="_isCollapsedContent">expand_more</md-icon>
+                <md-icon *ngIf="!_isCollapsedContent">expand_less</md-icon>
+            </button>
+
+                <md-list [collapse]="_isCollapsedContent" *ngFor="let item of currStage.hints" class="hintsListElement"  >
+                  <div  style="display: flex;">
+                    <div> 
+                        <md-icon style="margin-right: 2px">check_circle</md-icon>
+                    </div>
+                    <div>
+                        <span>
+                            <div *ngFor="let item_line of item?.split('\\n')">
+                                <div [innerHTML]="item_line | safeHtml"></div>
+                           </div> 
+                        </span>
+                    </div> 
+                  </div>
+                </md-list>
+
+          </div>
+
+       </md-card>
+
+
+      </div>
+        <div fxFlex="50" >
+          <div fxLayout="column">
+            <div fxFlex="75" style="position: absolute;top: 70px;" >
+             <aceEditor  class="text-inside-grid" #editor [text]="currStage.code" [mode]="currLang"
+                         (currStatus)="changeStatus($event)"></aceEditor>
+    
+              </div>
+
+  
+    <div fxFlex="25" style="position: absolute;bottom: 0;">
+        <md-card class="card-accent md-card-flat" >
+          <button style="margin-right: inherit;" #submitButton  
+          md-raised-button md-tooltip="Click here to submit your code!" (click)="submit()" color="primary" [disabled]="successLevel">
+            Submit your code!
+          </button>
+          <button style="margin-right: inherit;" #resetCodeButton
+          md-raised-button md-tooltip="Press this button only if you want to reset your code" (click)="resetCode()" 
+          color="primary" [disabled]="successLevel">
+           Reset code
+          </button>
+          <button style="margin-right: inherit;" #nextStageButton
+          md-raised-button md-tooltip="Click here to move next level!" (click)="moveNextLevel(currStage.id)" 
+          color="primary" [disabled]="!successLevel  || isLastLevel">
+           Start next lesson
+          </button>
+
+        </md-card>
+        </div>
+      </div>
+      <div fxFlex="25">
+        <div *ngIf="chatbotIsOn"  color="primary" >
+           <chatBot #chatbotcomp [code]="writtenCode" [chatbotinitmessage]="chatbotinitmessage"
+           [numofargs] ="currStage.numofargs" [argstype]="currStage.argstype" 
+           [stageID]="currStage.id" [currLang]="currLang" [courseApp]="courseApp" [argsmesssages]="currStage.argsmesssages">
+
+           </chatBot>
+        </div>
+      </div>
+    </div>
+</div>
